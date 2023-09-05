@@ -62,7 +62,6 @@ async function transformUserData(user, targetDate) {
     // Query Sleep collection for specified fields for the user on the target date
     const sleepData = await database.collection('Sleep').findOne({ user: user.name, date: targetDate });
 
-    // Perform data transformation here
     const transformedUserData = {
       user: user._id,
       date: new Date(targetDate),
@@ -92,7 +91,7 @@ function transformActivityData(activityData) {
 }
 
 function transformSleepData(sleepData) {
-  // Perform transformation of sleep data
+  // transformation of sleep data
   return {
     start_time: sleepData['DURATION IN BED'].split(' - ')[0],
     sleep_score: sleepData['SLEEP SCORE'],
